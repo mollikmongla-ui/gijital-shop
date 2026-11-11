@@ -55,7 +55,7 @@ export default async (req) => {
   try {
     const d = await req.json();
     const name = clean(d.name), email = clean(d.email), phone = clean(d.phone);
-    if (d.website || !name || !/^\S+@\S+\\.\S+$/.test(email) || !/^01\d{9}$/.test(phone)) {
+    if (d.website || !name || !/^\S+@\S+\.\S+$/.test(email) || !/^01\d{9}$/.test(phone)) {
       return json(422, { ok: false, error: "invalid_data" });
     }
 
